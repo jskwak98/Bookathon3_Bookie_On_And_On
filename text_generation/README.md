@@ -1,8 +1,8 @@
 # 2021 SKKU AI x Bookathon 3th
-## Introduction
+## 1. Introduction
 성균관대학교에서 주최하는 AI x Bookathon 대회로 인공지능 모델을 사용하여 주제가 '함께'인 수필을 작성하는 것이 목적입니다. 
 
-## Model Training Strategy
+## 2. Model Training Strategy
 마인즈랩에서 제공하는 뉴스데이터로 사전학습된 GPT2 모델을 사용하는 대신, 허깅페이스의 skt/ko-gpt-trinity-1.2B-v0.5를 한 번 더 사전학습을 진행한 후 fine-tuning 하는 방법으로 생성 모델을 학습시켰습니다.
 
 NVIDIA T4를 사용하기 때문에 GPU 메모리가 부족하다는 단점이 있었지만 아래와 같은 전략을 통해 해결하였습니다.  
@@ -22,7 +22,7 @@ GPT2의 경우, 긴 범위의 텍스트를 생성하게 되는 경우 글의 일
 2. Fine-tuning: Elastic Search를 사용하여 각 키워드에 맞는 데이터셋
 ```
 
-## Model Inference Strategy
+## 3. Model Inference Strategy
 Beam Search를 사용하는 경우 repetition problem이 발생할 확률이 높기 때문에 top-k sampling, top-p sampling 방법을 이용하여 텍스트 생성을 진행하였습니다. 
 
 또한, 긴 문장을 생성하기 위해 max_length를 적게 설정하는 대신, 짧은 문장을 연달아서 여러 번 생성하는 방법을 사용하였습니다. 
@@ -37,16 +37,16 @@ inference_loop.py: 짧은 텍스트를 연달아 생성하는 (추론)코드
 ```
 
 # Usage
-## Installation
+## 1. Installation
 ```
 $ pip install -r requirements.txt
 ```
-## Training
+## 2. Training
 ```
 $ sh train.sh
 ```
 
-## Inference
+## 3. Inference
 ```
 $ sh inference.sh
 ```
