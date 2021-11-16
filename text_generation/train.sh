@@ -1,0 +1,1 @@
+python train.py --output_dir {output_dir} --model_name_or_path {model_name_or_path}
