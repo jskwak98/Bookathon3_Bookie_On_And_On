@@ -1,6 +1,6 @@
 # 2021 SKKU AI x Bookathon 3th
 ## Introduction
-성균관대학교에서 주최하는 AI x Bookathon 대회로, 주제가 '함께'인 수필을 인공지능 모델을 사용하여 쓰는 것이 목적입니다. 
+성균관대학교에서 주최하는 AI x Bookathon 대회로 인공지능 모델을 사용하여 주제가 '함께'인 수필을 작성하는 것이 목적입니다. 
 
 ## Model Training Strategy
 마인즈랩에서 제공하는 뉴스데이터로 사전학습된 GPT2 모델을 사용하는 대신, 허깅페이스의 skt/ko-gpt-trinity-1.2B-v0.5를 한 번 더 사전학습을 진행한 후 fine-tuning 하는 방법으로 생성 모델을 학습시켰습니다.
@@ -33,6 +33,7 @@ Beam Search를 사용하는 경우 repetition problem이 발생할 확률이 높
 ```
 train.py: 모델 학습 코드
 inference.py: 텍스트 생성 (추론)코드
+inference_loop.py: 짧은 텍스트를 연달아 생성하는 (추론)코드
 ```
 
 # Usage
