@@ -53,11 +53,11 @@ $ python elastic_search.py --query '함께' --corpus_dir 'YOUR_CORPUS_PATH' --nu
 ```
 ## 3. Training
 ```
-$ sh train.sh
+$ sh text_generation/train.sh
 ```
 
 ## 4. Inference
 ```
-$ sh inference.sh
+$ sh text_generation/inference.sh
 ```
 
