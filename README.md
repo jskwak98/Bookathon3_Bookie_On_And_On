@@ -22,6 +22,11 @@ GPT2의 경우, 긴 범위의 텍스트를 생성하게 되는 경우 글의 일
 2. Fine-tuning: Elastic Search를 사용하여 각 키워드에 맞는 데이터셋
 ```
 
+### Retrieval for Elastic Search
+수집한 전체 데이터셋의 크기가 굉장히 크고, 소주제별 Professional Writer Model 을 각각 만들기 위하여 전체데이터셋에서 주제에 맞는 Keyword 를 Query 로 하여 유사도 높은 문장만을 선별해 fine-tuning 하였습니다.
+
+`elastic_search.py` 를 실행하면 train/valid 두 가지의 txt 파일이 생성됩니다.
+
 ## 3. Model Inference Strategy
 Beam Search를 사용하는 경우 repetition problem이 발생할 확률이 높기 때문에 top-k sampling, top-p sampling 방법을 이용하여 텍스트 생성을 진행하였습니다. 
 
@@ -41,12 +46,17 @@ inference_loop.py: 짧은 텍스트를 연달아 생성하는 (추론)코드
 ```
 $ pip install -r requirements.txt
 ```
-## 2. Training
+
+## 2. Retrieval
+```
+$ python elastic_search.py --query '함께' --corpus_dir 'YOUR_CORPUS_PATH' --num_samples 500
+```
+## 3. Training
 ```
 $ sh train.sh
 ```
 
-## 3. Inference
+## 4. Inference
 ```
 $ sh inference.sh
 ```

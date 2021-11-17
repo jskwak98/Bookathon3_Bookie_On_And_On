@@ -111,12 +111,15 @@ def make_retrieval_datasets(elastic_search_results, query):
 
 def main(args):
     query = args.query
-    corpus = args.corpus
+    corpus_dir = args.corpus_dir
+    if corpus_dir == '':
+        assert "CORPUS DIR IS EMPTY STRING"
+    num_samples_for_retrieval = args.num_samples
 
-    docs = init_corpus(corpus)
+    docs = init_corpus(corpus_dir)
     init_elastic_search_engine(docs)
 
-    res, err = search_query([query], 500)
+    res, err = search_query([query], num_samples_for_retrieval)
     make_retrieval_datasets(res, query)
 
 
@@ -124,7 +127,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--query', type=str, default='함께')
-    parser.corpus_dir('--corpus_dir', type=str, default='df_preprocessed.csv')
+    parser.add_argument('--corpus_dir', type=str,
+                        default='')
+    parser.add_argument('--num_samples', type=int, default=500)
 
     args = parser.parse_args()
 
