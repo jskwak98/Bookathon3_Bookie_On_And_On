@@ -11,6 +11,9 @@
 
 [>> 최종작품 보러가기](./내가%20나와%20함께%20살아가는%20법%20(I%20%2B%20I%20%3D%20We).md)
 
+## 2. Data Preprocessing Strategy
+크롤링한 데이터를 [KLUE: Korean Language Understanding Evaluation](https://arxiv.org/pdf/2105.09680.pdf) 논문에서 사용한 전처리 기법들을 사용하여 정제하였습니다. 
+
 ## 2. Model Training Strategy
 마인즈랩에서 제공하는 뉴스데이터로 사전학습된 GPT2 모델을 사용하는 대신, 허깅페이스의 skt/ko-gpt-trinity-1.2B-v0.5를 한 번 더 사전학습을 진행한 후 fine-tuning 하는 방법으로 생성 모델을 학습시켰습니다.
 
@@ -45,9 +48,9 @@ Beam Search를 사용하는 경우 repetition problem이 발생할 확률이 높
 
 # Structure
 ```
-train.py: 모델 학습 코드
-inference.py: 텍스트 생성 (추론)코드
-inference_loop.py: 짧은 텍스트를 연달아 생성하는 (추론)코드
+text_generation/train.py: 모델 학습 코드
+text_generation/inference.py: 텍스트 생성 (추론)코드
+text_generation/inference_loop.py: 짧은 텍스트를 연달아 생성하는 (추론)코드
 ```
 
 # Usage
