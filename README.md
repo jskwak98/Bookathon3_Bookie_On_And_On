@@ -14,7 +14,7 @@
 ## 2. Data Preprocessing Strategy
 크롤링한 데이터를 [KLUE: Korean Language Understanding Evaluation](https://arxiv.org/pdf/2105.09680.pdf) 논문에서 사용한 전처리 기법들을 사용하여 정제하였습니다. 
 
-## 2. Model Training Strategy
+## 3. Model Training Strategy
 마인즈랩에서 제공하는 뉴스데이터로 사전학습된 GPT2 모델을 사용하는 대신, 허깅페이스의 skt/ko-gpt-trinity-1.2B-v0.5를 한 번 더 사전학습을 진행한 후 fine-tuning 하는 방법으로 생성 모델을 학습시켰습니다.
 
 NVIDIA T4를 사용하기 때문에 GPU 메모리가 부족하다는 단점이 있었지만 아래와 같은 전략을 통해 해결하였습니다.  
@@ -39,7 +39,7 @@ GPT2의 경우, 긴 범위의 텍스트를 생성하게 되는 경우 글의 일
 
 `elastic_search.py` 를 실행하면 train/valid 두 가지의 txt 파일이 생성됩니다.
 
-## 3. Model Inference Strategy
+## 4. Model Inference Strategy
 Beam Search를 사용하는 경우 repetition problem이 발생할 확률이 높기 때문에 top-k sampling, top-p sampling 방법을 이용하여 텍스트 생성을 진행하였습니다. 
 
 또한, 긴 문장을 생성하기 위해 max_length를 적게 설정하는 대신, 짧은 문장을 연달아서 여러 번 생성하는 방법을 사용하였습니다. 
