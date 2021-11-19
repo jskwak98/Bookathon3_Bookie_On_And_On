@@ -11,6 +11,8 @@
 
 [>> 최종작품 보러가기](./내가%20나와%20함께%20살아가는%20법%20(I%20%2B%20I%20%3D%20We).md)
 
+[>> 후기/솔루션 보러가기](https://l-yohai.github.io/AI-Bookathon-대상-후기/)
+
 ## 2. Data Preprocessing Strategy
 크롤링한 데이터를 [KLUE: Korean Language Understanding Evaluation](https://arxiv.org/pdf/2105.09680.pdf) 논문에서 사용한 전처리 기법들을 사용하여 정제하였습니다.
 
