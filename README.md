@@ -1,4 +1,4 @@
-# 2021 SKKU AI x Bookathon 3th
+# 2021 SKKU AI x Bookathon 3rd
 
 ## 1. Introduction
 성균관대학교에서 주최하는 AI x Bookathon 대회로 인공지능 모델을 사용하여 주제가 '함께'인 수필을 작성하는 것이 목적입니다. 
